@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <form class="form" action="">
+            <div class="form-header">
+                <h4>Cadastrar produto</h4>
+            </div>
+    
+            <div class="form-content">
+                <div class="form-input required">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" placeholder="Informe o nome" required>
+                </div>
+                <div class="form-input">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" name="descricao" placeholder="Informe a descrição">
+                </div>
+                <div class="form-input required">
+                    <label for="preco">Preço</label>
+                    <input type="number" step="0.0" name="preco" placeholder="Informe o preço" required>
+                </div>
+            </div>
+    
+            <div class="form-action">
+                <button type="button"onclick="limparForm()">Limpar</button>
+                <button type="button" onclick="adicionaProduto">Enviar</button>
+            </div>
+        </form>
+        
+
+    </main>
+    <script>
+    function limparForm() {
+        console.log("limparForm")
+        document.querySelector('input[name="nome"]').value = ''
+        document.querySelector('input[name="descricao"]').value = ''
+        document.querySelector('input[name="preco"]').value = ''
+
+    }
+
+    function adicionaProduto() {
+        console.log('adicionaProduto')
+        const nome = document.querySelector('input[name="nome"]').value
+        const descricao = document.querySelector('input[name="descricao"]').value
+        const preco = document.querySelector('input[name = "preco"]').value
+
+        const produtoNovo = `<p>Nome: ${nome}</p> <p>Descrição: ${desricao}</p> <p>preço: ${preco}</p>`
+        console.log(produtoNovo)
+
+        const elementoLista = document.querySelector('#produtos')
+        elementoLista.innerHTML =`${elementoLista.innerHTML} <li>`
+
+    }
+</script>
+</body>
+
+</html>
